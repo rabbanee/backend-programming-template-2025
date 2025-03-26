@@ -1,11 +1,15 @@
 const usersRepository = require('./users-repository');
 
-async function getUsers() {
-  return usersRepository.getUsers();
+async function getUsers(offset, limit) {
+  return usersRepository.getUsers(offset, limit);
 }
 
 async function getUser(id) {
   return usersRepository.getUser(id);
+}
+
+async function getUserByEmail(email) {
+  return usersRepository.getUserByEmail(email);
 }
 
 async function emailExists(email) {
@@ -28,6 +32,7 @@ async function deleteUser(id) {
 module.exports = {
   getUsers,
   getUser,
+  getUserByEmail,
   emailExists,
   createUser,
   updateUser,

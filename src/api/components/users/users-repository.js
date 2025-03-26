@@ -1,7 +1,7 @@
 const { Users } = require('../../../models');
 
-async function getUsers() {
-  return Users.find({});
+async function getUsers(offset, limit) {
+  return Users.find({}).skip(offset).limit(limit);
 }
 
 async function getUser(id) {

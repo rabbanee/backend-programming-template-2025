@@ -4,7 +4,10 @@ const { hashPassword } = require('../../../utils/password');
 
 async function getUsers(request, response, next) {
   try {
-    const users = await usersService.getUsers();
+    const users = await usersService.getUsers(
+      request.query.offset ?? 0,
+      request.query.limit ?? 10
+    );
 
     return response.status(200).json(users);
   } catch (error) {
